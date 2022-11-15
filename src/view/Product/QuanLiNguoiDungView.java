@@ -88,18 +88,20 @@ public class QuanLiNguoiDungView {
                 System.out.println("\t--               【1】. THAY ĐỔI TÊN                     --");
                 System.out.println("\t--               【2】. THAY ĐỔI SỐ ĐIỆN THOẠI           --");
                 System.out.println("\t--               【3】. THAY ĐỔI ĐỊA CHỈ                 --");
-                System.out.println("\t--               【4】. THAY ĐỔI TẤT CẢ                  --");
-                System.out.println("\t--               【5】. QUAY LẠI                         --");
+                System.out.println("\t--               【4】. THAY ĐỔI EMAIL                   --");
+                System.out.println("\t--               【5】. THAY ĐỔI TẤT CẢ                  --");
+                System.out.println("\t--               【6】. QUAY LẠI                         --");
                 System.out.println("\t--               【0】. THOÁT CHƯƠNG TRÌNH               --");
                 System.out.println("\t--                                                      --");
                 System.out.println("\t----------------------------------------------------------");
                 System.out.print("░░░░░░░░░░░░░░░░░░░░░░░░░░  CHỌN SỐ : ");
-                int option = AppUtils.retryChoose(0, 5);
+                int option = AppUtils.retryChoose(0, 6);
                 User newUser = new User();
                 newUser.setId(id);
                 String name;
                 String phone;
                 String address;
+                String email;
                 switch (option) {
                     case 1:
                         name = inputFullName();
@@ -120,16 +122,24 @@ public class QuanLiNguoiDungView {
                         System.out.println("THAY ĐỔI ĐỊA CHỈ THÀNH CÔNG");
                         break;
                     case 4:
+                        email = inputEmail();
+                        newUser.setEmail(email);
+                        userService.update(newUser);
+                        System.out.println("THAY ĐỔI EMAIL THÀNH CÔNG");
+                        break;
+                    case 5:
                         name = inputFullName();
                         newUser.setFullName(name);
                         phone = inputPhone();
                         newUser.setMobile(phone);
                         address = inputAddress();
                         newUser.setAddress(address);
+                        email = inputEmail();
+                        newUser.setEmail(email);
                         userService.update(newUser);
                         System.out.println("THAY ĐỔI THÀNH CÔNG");
                 }
-                isRetry = option != 4 && AppUtils.isRetry();
+                isRetry = option != 5 && AppUtils.isRetry();
 
             } catch (Exception e) {
                 System.out.println("NHẬP SAI, XIN NHẬP LẠI");
@@ -213,14 +223,12 @@ public class QuanLiNguoiDungView {
     }
 
     public String inputPhone() {
-        System.out.print("NHẬP SỐ ĐIỆN THOẠI: ");
-
         String phone;
         do {
+            System.out.print("NHẬP SỐ ĐIỆN THOẠI: ");
             phone = scanner.nextLine();
             if (!ValidateUtils.isPhoneValid(phone)) {
                 System.out.println("SỐ CỦA BẠN KHÔNG ĐÚNG ĐỊNH DẠNG (BẮT ĐẦU LÀ SỐ 0, VÀ ĐỦ 10 SỐ)");
-                System.out.print("NHẬP SỐ ĐIỆN THOẠI : ");
                 continue;
             }
             if (userService.existsByPhone(phone)) {

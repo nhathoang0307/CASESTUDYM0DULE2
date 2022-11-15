@@ -1,7 +1,7 @@
 package model;
 
 public class OrderItem {
-    private Long id;
+    private Long idItem;
     private float price;
     private Long quantity;
     private Long orderId;
@@ -12,7 +12,7 @@ public class OrderItem {
 
     public OrderItem(String record) {
         String[] fields = record.split(",");
-        id = Long.parseLong(fields[0]);
+        idItem = Long.parseLong(fields[0]);
         price = Float.parseFloat(fields[1]);
         quantity = Long.parseLong(fields[2]);
         orderId = Long.parseLong(fields[3]);
@@ -24,12 +24,12 @@ public class OrderItem {
     }
 
 
-    public Long getId() {
-        return id;
+    public Long getIdItem() {
+        return idItem;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
     }
 
     public float getPrice() {
@@ -82,8 +82,8 @@ public class OrderItem {
 
 
 
-    public OrderItem(Long id, float price, Long quantity, Long orderId, Long productId, String productName, double total) {
-        this.id = id;
+    public OrderItem(Long idItem, float price, Long quantity, Long orderId, Long productId, String productName, double total) {
+        this.idItem = idItem;
         this.price = price;
         this.quantity = quantity;
         this.orderId = orderId;
@@ -95,6 +95,6 @@ public class OrderItem {
 
     @Override
     public String toString() {
-        return id + "," + price + "," + quantity + "," + orderId + "," + productId + "," + productName;
+        return idItem + "," + price + "," + quantity + "," + orderId + "," + productId + "," + productName;
     }
 }

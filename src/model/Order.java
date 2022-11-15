@@ -1,22 +1,36 @@
 package model;
 
+import java.time.Instant;
+import java.util.List;
+
 public class Order {
     private Long idOrder;
     private String name;
     private String phonenumber;
     private String address;
 
+    private Long idUser;
+
     public Order() {
     }
 
-    public Order(Long idOrder, String name, String phonenumber, String address) {
+    public Order(Long idOrder, String name, String phonenumber, String address, Long idUser) {
         this.idOrder = idOrder;
         this.name = name;
         this.phonenumber = phonenumber;
         this.address = address;
+        this.idUser = idUser;
     }
 
-//    public static Order parseOrder(String record) {
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    //    public static Order parseOrder(String record) {
 //        Order order = new Order();
 //        String[] fields = record.split(",");
 //        order.idOrder = Long.parseLong(fields[0]);
@@ -60,11 +74,14 @@ public class Order {
         order.name = field[1];
         order.phonenumber = field[2];
         order.address = field[3];
+        order.idUser = Long.parseLong(field[4]);
         return order;
     }
 
+
+
     @Override
     public String toString() {
-        return idOrder + "," + name + "," + phonenumber + "," + address ;
+        return idOrder + "," + name + "," + phonenumber + "," + address + "," + idUser;
     }
 }

@@ -1,12 +1,15 @@
 package view.User;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import model.Order;
 import model.OrderItem;
 import model.Product;
+import model.User;
 import service.*;
 import utils.AppUtils;
 import utils.ValidateUtils;
 import view.Login.LoginUserView;
+import view.Product.ProductView;
 import view.Product.QuanLiSanPhamView;
 
 import java.util.ArrayList;
@@ -23,6 +26,8 @@ public class taoDonHangView {
     public static UserView userView = new UserView();
     public static LoginUserView loginUserView;
 
+    public static ProductView productView = new ProductView();
+
     public taoDonHangView() {
         productService = ProductService.getProductService();
         orderService = OrderService.getInstance();
@@ -32,7 +37,8 @@ public class taoDonHangView {
     public void MenutaoDonHang() {
         ArrayList<OrderItem> orderItemArrays = new ArrayList<>();
         try {
-            long orderId = UserService.getUserService().getIdUser(loginUserView.name);
+            long orderId = System.currentTimeMillis() / 1000;
+            long idUser = UserService.getUserService().getIdUser(loginUserView.name);
             System.out.print("NHẬP TÊN KHÁCH HÀNG: ");
             String name = scanner.nextLine();
             while (!ValidateUtils.isNameValid(name)) {
@@ -57,7 +63,7 @@ public class taoDonHangView {
                 }
             } while (address.trim().isEmpty());
             OrderItem orderItem = addOrderItems(orderId);
-            Order order = new Order(orderId, name, phone, address);
+            Order order = new Order(orderId, name, phone, address, idUser);
             oderItemService.add(orderItem);
             orderService.add(order);
             orderItemArrays.add(orderItem);
@@ -78,7 +84,7 @@ public class taoDonHangView {
                 switch (choice) {
                     case "1":
 //                        addOrderItems(System.currentTimeMillis() / 1000);
-                        addOrderMore(orderId, name, phone, address, orderItemArrays);
+                        addOrderMore(orderId, name, phone, address, idUser, orderItemArrays);
                         break;
                     case "2":
                         showPaymentInfo(orderItemArrays, order);
@@ -97,10 +103,10 @@ public class taoDonHangView {
         }
     }
 
-    public void addOrderMore(long orderId, String name, String phone, String address, ArrayList<OrderItem> orderItemArrayList) {
+    public void addOrderMore(long orderId, String name, String phone, String address, Long idUser, ArrayList<OrderItem> orderItemArrayList) {
         try {
             OrderItem orderItem = addOrderItems(orderId);
-            Order order = new Order(orderId, name, phone, address);
+            Order order = new Order(orderId, name, phone, address, idUser);
             oderItemService.add(orderItem);
             orderItemArrayList.add(orderItem);
             System.out.println("TẠO ĐƠN HÀNG THÀNH CÔNG");
@@ -119,7 +125,7 @@ public class taoDonHangView {
                 switch (choice) {
                     case "1":
 //                        addOrderItems(System.currentTimeMillis() / 1000);
-                        addOrderMore(orderId, name, phone, address, orderItemArrayList);
+                        addOrderMore(orderId, name, phone, address, idUser, orderItemArrayList);
                         break;
                     case "2":
                         showPaymentInfo(orderItemArrayList, order);
@@ -218,7 +224,7 @@ public class taoDonHangView {
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "1":
-                        addOrderMore(order.getIdOrder(), order.getName(), order.getPhonenumber(), order.getAddress(), orderItems);
+                        addOrderMore(order.getIdOrder(), order.getName(), order.getPhonenumber(), order.getAddress(), order.getIdUser(), orderItems);
                         break;
                     case "2":
                         userView.MenuUser();
@@ -235,29 +241,128 @@ public class taoDonHangView {
             System.out.println("NHẬP SAI, XIN NHẬP LẠI");
         }
     }
+
+    public void getHistoryOrdertest() {
+        Long check = UserService.getUserService().getIdUser(loginUserView.name);
+        List<User> users = UserService.getUserService().showAllUser();
+        List<Order> orders = orderService.showAllOrder();
+        List<OrderItem> orderItems = oderItemService.showAll();
+
+    }
     public void getHistoryOrder() {
-        Long orderId = UserService.getUserService().getIdUser(loginUserView.name);
-        List<OrderItem> list = OrderItemService.getInstance().getHistory(orderId);
+        Long userId = UserService.getUserService().getIdUser(loginUserView.name);
+        Long orderId = orderService.getIdOrder(userId);
+        List<Order> orders = orderService.orderHistory(userId);
+        List<OrderItem> orderItems = OrderItemService.getInstance().showAll();
+        OrderItem newOrderItem = new OrderItem();
         double total = 0;
-        
-        System.out.println("--------------------------------------------LỊCH SỬ ORDER SẢN PHẨM-------------------------------------------");
-        System.out.printf("%-20s %-20s %-20s %-20s\n",
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-17s %-20s %-20s %-15s %-15s %-17s %-15s %-20s\n",
+                " ID",
+                "TÊN KHÁCH HÀNG",
+                "SỐ ĐIỆN THOẠI",
+                "ĐỊA CHỈ",
                 "TÊN SẢN PHẨM",
-                "GIÁ",
                 "SỐ LƯỢNG",
+                "GIÁ",
                 "THÀNH TIỀN"
         );
-        for (OrderItem order : list) {
-            System.out.printf("%-20s %-20s %-20s %-20s\n",
-                    order.getProductName(),
-                    AppUtils.doubleToVND(order.getPrice()),
-                    order.getQuantity(),
-                    order.getTotal(),
-                    total += order.getTotal()
-            );
+        for (Order order : orders) {
+            boolean checkContinue = true;
+            for (OrderItem orderItem : orderItems) {
+                if (orderItem.getOrderId().equals(order.getIdOrder())) {
+                    newOrderItem = orderItem;
+                    checkContinue = false;
+                }
+                if (checkContinue == false) {
+                    System.out.printf("%-17s %-20s %-20s %-15s %-15s %-17s %-15s %-20s\n",
+                            "【" + newOrderItem.getIdItem() + "】",
+                            order.getName(),
+                            order.getPhonenumber(),
+                            order.getAddress(),
+                            newOrderItem.getProductName(),
+                            newOrderItem.getQuantity(),
+                            AppUtils.doubleToVND(newOrderItem.getPrice()),
+                            AppUtils.doubleToVND(newOrderItem.getTotal())
+                    );
+                    checkContinue = true;
+                    AppUtils.doubleToVND(total += newOrderItem.getTotal());
+                }
+            }
+
         }
-        System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t------------");
-        System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t    TỔNG TIỀN: " + AppUtils.doubleToVND(total));
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\t---------------------------");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\t--  TỔNG TIỀN:  " + AppUtils.doubleToVND(total) + " --");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\t---------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+
+    }
+
+    public void hienThiDonHang() {
+        List<Order> orders = orderService.showAllOrder();
+        List<OrderItem> orderItems = oderItemService.showAll();
+        OrderItem newOrderItem = new OrderItem();
+        double a = 0;
+        try {
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("%-17s %-20s %-20s %-15s %-15s %-17s %-15s %-20s\n",
+                    " ID",
+                    "TÊN KHÁCH HÀNG",
+                    "SỐ ĐIỆN THOẠI",
+                    "ĐỊA CHỈ",
+                    "TÊN SẢN PHẨM",
+                    "SỐ LƯỢNG",
+                    "GIÁ",
+                    "THÀNH TIỀN"
+            );
+            for (Order order : orders) {
+                boolean checkContinue = true;
+                for (OrderItem orderItem : orderItems) {
+                    if (orderItem.getOrderId().equals(order.getIdOrder())) {
+                        newOrderItem = orderItem;
+                        checkContinue = false;
+                    }
+                    if (checkContinue == false) {
+                        System.out.printf("%-17s %-20s %-20s %-15s %-15s %-17s %-15s %-20s\n",
+                                "【" + order.getIdOrder() + "】",
+                                order.getName(),
+                                order.getPhonenumber(),
+                                order.getAddress(),
+                                newOrderItem.getProductName(),
+                                newOrderItem.getQuantity(),
+                                AppUtils.doubleToVND(newOrderItem.getPrice()),
+                                AppUtils.doubleToVND(newOrderItem.getTotal())
+                        );
+                        checkContinue = true;
+                        AppUtils.doubleToVND(a += newOrderItem.getTotal());
+                    }
+                }
+
+            }
+            System.out.println("-- ══════════════════════════════════════════");
+            System.out.println("-- TỔNG TIỀN :  " + AppUtils.doubleToVND(a));
+            System.out.println("-- ══════════════════════════════════════════");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            boolean is = true;
+            do {
+                System.out.println("NHẤN 1 ĐỂ QUAY LẠI \t|\t NHẤN 0 ĐỂ THOÁT CHƯƠNG TRÌNH");
+                System.out.print("░░░ ");
+                String choice = scanner.nextLine();
+                switch (choice) {
+                    case "1":
+                        productView.MenuAdmin();
+                        break;
+                    case "0":
+                        AppUtils.exit();
+                        break;
+                    default:
+                        System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+                        is = false;
+                }
+            } while (!is);
+        } catch (Exception e) {
+            System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+        }
     }
 }

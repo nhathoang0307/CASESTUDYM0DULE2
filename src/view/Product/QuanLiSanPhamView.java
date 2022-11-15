@@ -1,5 +1,7 @@
 package view.Product;
 
+import model.Order;
+import model.OrderItem;
 import model.Product;
 import service.ProductService;
 import utils.AppUtils;
@@ -29,12 +31,12 @@ public class QuanLiSanPhamView {
         System.out.println("\t--                             【2】. THÊM SẢN PHẨM                                  --");
         System.out.println("\t--                             【3】. SỬA SẢN PHẨM                                   --");
         System.out.println("\t--                             【4】. XÓA SẢN PHẨM                                   --");
-        System.out.println("\t--                             【5】. SẮP XẾP TĂNG DẦN THEO GIÁ                      --");
-        System.out.println("\t--                             【6】. SẮP XẾP GIẢM DẦN THEO GIÁ                      --");
-        System.out.println("\t--                             【7】. SẮP XẾP TĂNG DẦN THEO TÊN                      --");
-        System.out.println("\t--                             【8】. SẮP XẾP GIẢM DẦN THEO TÊN                      --");
-        System.out.println("\t--                             【9】. SẮP XẾP TĂNG DẦN THEO SỐ LƯỢNG                 --");
-        System.out.println("\t--                             【10】. SẮP XẾP GIẢM DẦN THEO SỐ LƯỢNG                --");
+        System.out.println("\t--                             【5】. SẮP XẾP GIẢM DẦN THEO GIÁ                      --");
+        System.out.println("\t--                             【6】. SẮP XẾP TĂNG DẦN THEO GIÁ                      --");
+        System.out.println("\t--                             【7】. SẮP XẾP GIẢM DẦN THEO TÊN                      --");
+        System.out.println("\t--                             【8】. SẮP XẾP TĂNG DẦN THEO TÊN                      --");
+        System.out.println("\t--                             【9】. SẮP XẾP GIẢM DẦN THEO SỐ LƯỢNG                 --");
+        System.out.println("\t--                             【10】. SẮP XẾP TĂNG DẦN THEO SỐ LƯỢNG                --");
         System.out.println("\t--                             【11】. TÌM KIẾM THEO ID                              --");
         System.out.println("\t--                             【12】. TÌM KIẾM THEO TÊN SẢN PHẨM                    --");
         System.out.println("\t--                             【13】. QUAY LẠI MENU                                 --");
@@ -517,4 +519,5 @@ public class QuanLiSanPhamView {
             }
         } while (AppUtils.isRetry());
     }
+
 }

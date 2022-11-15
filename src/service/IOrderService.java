@@ -16,4 +16,8 @@ public interface IOrderService{
     List<Order> findByUserId(long id);
 
     boolean existById(long id);
+
+     Long getIdOrder(Long id);
+
+     List<Order> orderHistory(Long id);
 }

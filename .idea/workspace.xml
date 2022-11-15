@@ -5,49 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c35ceafc-abb5-4098-912a-fec71f71d1ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/case_module2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/daTa/orderItems.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/daTa/orders.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/daTa/products.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/daTa/users.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/OrderItemHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/IOderItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/IOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/OrderItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/AppUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/CSVUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/InputOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/InstantUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/ValidateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Login/LoginUserView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Login/LoginView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Product/ProductView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Product/QuanLiDonHangView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Product/QuanLiNguoiDungView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Product/QuanLiSanPhamView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Product/ThoatChuongTrinh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/User/UserView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/User/thoatChuongTrinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daTa/orderItems.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/orderItems.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daTa/orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/orders.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daTa/products.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/products.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daTa/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/OrderItemHistory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/IOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/IOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ValidateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ValidateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiDonHangView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiNguoiDungView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/QuanLiNguoiDungView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiSanPhamView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/QuanLiSanPhamView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/ThoatChuongTrinh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/User/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/UserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +83,7 @@
       <recent name="view" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Menu">
     <configuration name="Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Menu" />
       <module name="case_module2" />
@@ -197,7 +172,7 @@
       <workItem from="1668381980553" duration="2764000" />
       <workItem from="1668390065457" duration="30421000" />
       <workItem from="1668435565678" duration="2113000" />
-      <workItem from="1668437949185" duration="36879000" />
+      <workItem from="1668437949185" duration="49270000" />
     </task>
     <servers />
   </component>

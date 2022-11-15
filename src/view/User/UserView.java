@@ -17,6 +17,7 @@ public class UserView {
 
 
     public void MenuUser() {
+        try {
         System.out.println("\t----------------------------------------------------------");
         System.out.println("\t--░░░░░░░░░░░░░░░[TRANG CÁ NHÂN CỦA BẠN]░░░░░░░░░░░░░░░░--");
         System.out.println("\t----------------------------------------------------------");
@@ -27,10 +28,11 @@ public class UserView {
         System.out.println("\t--               【0】. THOÁT                            --");
         System.out.println("\t--                                                      --");
         System.out.println("\t----------------------------------------------------------");
-        System.out.print("CHỌN SỐ : ");
-        int choice = Integer.parseInt(scanner.nextLine());
+        int choice;
+
         do {
-            try {
+            System.out.print("CHỌN SỐ : ");
+             choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
                         quanLiSanPhamView.showALl();
@@ -48,11 +50,11 @@ public class UserView {
                         System.out.println("HẸN GẶP LẠI");
                         System.exit(5);
                 }
-            } catch (Exception e) {
-                System.out.println("NHẬP SAI , XIN NHẬP LẠI");
-            }
-        } while (choice != 0);
 
+        } while (choice != 0);
+        } catch (Exception e) {
+            System.out.println("NHẬP SAI , XIN NHẬP LẠI");
+        }
     }
 
 }

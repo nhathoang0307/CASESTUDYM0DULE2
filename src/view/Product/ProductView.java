@@ -1,12 +1,15 @@
 package view.Product;
 
+import view.User.taoDonHangView;
+
 import java.util.Scanner;
 
 public class ProductView {
     public static Scanner scanner = new Scanner(System.in);
     public static QuanLiNguoiDungView quanLiNguoiDungView = new QuanLiNguoiDungView();
-    public static QuanLiDonHangView quanLiDonHangView = new QuanLiDonHangView();
     public static QuanLiSanPhamView quanLiSanPhamView = new QuanLiSanPhamView();
+
+    taoDonHangView taoDonHangView = new taoDonHangView();
     int choice;
     public void MenuAdmin() {
         System.out.println("\t----------------------------------------------------------");
@@ -28,7 +31,7 @@ public class ProductView {
                         quanLiSanPhamView.menuProduct();
                         break;
                     case 2:
-//                        quanLiSanPhamView.menuUser();
+                        taoDonHangView.hienThiDonHang();
                         break;
                     case 3:
                         quanLiNguoiDungView.menuUser();;

@@ -1,12 +1,14 @@
 package service;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import model.Order;
+import model.User;
 import utils.CSVUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderService implements IOrderService{
+public class OrderService implements IOrderService {
     public static final String PATH = "G:\\Module2\\case_module2\\daTa\\orders.csv";
 
     //Singleton Design Pattern
@@ -48,9 +50,9 @@ public class OrderService implements IOrderService{
     @Override
     public Order findById(long id) {
         List<Order> orders = showAllOrder();
-        for (Order order : orders) {
-            if (order.getIdOrder() == id)
-                return order;
+        for (Order a : orders) {
+            if (a.getIdOrder().equals(id))
+                return a;
         }
         return null;
     }
@@ -68,5 +70,25 @@ public class OrderService implements IOrderService{
     @Override
     public boolean existById(long id) {
         return findById(id) != null;
+    }
+
+    public Long getIdOrder(Long id) {
+        List<Order> orders = showAllOrder();
+        for (Order order : orders) {
+            if (order.getIdUser().equals(id)) {
+                return order.getIdOrder();
+            }
+        }
+        return null;
+    }
+    public List<Order> orderHistory(Long id) {
+        List<Order> orders = showAllOrder();
+        List<Order> lists = new ArrayList<>();
+        for (Order order : orders) {
+            if (order.getIdUser().equals(id)) {
+                lists.add(order);
+            }
+        }
+        return lists;
     }
 }
