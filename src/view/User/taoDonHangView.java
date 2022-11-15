@@ -7,11 +7,13 @@ import model.Product;
 import model.User;
 import service.*;
 import utils.AppUtils;
+import utils.InstantUtils;
 import utils.ValidateUtils;
 import view.Login.LoginUserView;
 import view.Product.ProductView;
 import view.Product.QuanLiSanPhamView;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -63,7 +65,8 @@ public class taoDonHangView {
                 }
             } while (address.trim().isEmpty());
             OrderItem orderItem = addOrderItems(orderId);
-            Order order = new Order(orderId, name, phone, address, idUser);
+            Instant createAT = Instant.now();
+            Order order = new Order(orderId, name, phone, address, idUser, createAT);
             oderItemService.add(orderItem);
             orderService.add(order);
             orderItemArrays.add(orderItem);
@@ -84,7 +87,7 @@ public class taoDonHangView {
                 switch (choice) {
                     case "1":
 //                        addOrderItems(System.currentTimeMillis() / 1000);
-                        addOrderMore(orderId, name, phone, address, idUser, orderItemArrays);
+                        addOrderMore(orderId, name, phone, address, idUser, createAT, orderItemArrays);
                         break;
                     case "2":
                         showPaymentInfo(orderItemArrays, order);
@@ -103,10 +106,10 @@ public class taoDonHangView {
         }
     }
 
-    public void addOrderMore(long orderId, String name, String phone, String address, Long idUser, ArrayList<OrderItem> orderItemArrayList) {
+    public void addOrderMore(long orderId, String name, String phone, String address, Long idUser, Instant createAT, ArrayList<OrderItem> orderItemArrayList) {
         try {
             OrderItem orderItem = addOrderItems(orderId);
-            Order order = new Order(orderId, name, phone, address, idUser);
+            Order order = new Order(orderId, name, phone, address, idUser, createAT);
             oderItemService.add(orderItem);
             orderItemArrayList.add(orderItem);
             System.out.println("TẠO ĐƠN HÀNG THÀNH CÔNG");
@@ -125,7 +128,7 @@ public class taoDonHangView {
                 switch (choice) {
                     case "1":
 //                        addOrderItems(System.currentTimeMillis() / 1000);
-                        addOrderMore(orderId, name, phone, address, idUser, orderItemArrayList);
+                        addOrderMore(orderId, name, phone, address, idUser, createAT, orderItemArrayList);
                         break;
                     case "2":
                         showPaymentInfo(orderItemArrayList, order);
@@ -224,7 +227,7 @@ public class taoDonHangView {
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "1":
-                        addOrderMore(order.getIdOrder(), order.getName(), order.getPhonenumber(), order.getAddress(), order.getIdUser(), orderItems);
+                        addOrderMore(order.getIdOrder(), order.getName(), order.getPhonenumber(), order.getAddress(), order.getIdUser(), order.getCreateAT() , orderItems);
                         break;
                     case "2":
                         userView.MenuUser();
@@ -251,13 +254,12 @@ public class taoDonHangView {
     }
     public void getHistoryOrder() {
         Long userId = UserService.getUserService().getIdUser(loginUserView.name);
-        Long orderId = orderService.getIdOrder(userId);
         List<Order> orders = orderService.orderHistory(userId);
         List<OrderItem> orderItems = OrderItemService.getInstance().showAll();
         OrderItem newOrderItem = new OrderItem();
         double total = 0;
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%-17s %-20s %-20s %-15s %-15s %-17s %-15s %-20s\n",
+        System.out.printf("%-17s %-20s %-20s %-15s %-15s %-12s %-12s %-15s %-20s\n",
                 " ID",
                 "TÊN KHÁCH HÀNG",
                 "SỐ ĐIỆN THOẠI",
@@ -265,7 +267,8 @@ public class taoDonHangView {
                 "TÊN SẢN PHẨM",
                 "SỐ LƯỢNG",
                 "GIÁ",
-                "THÀNH TIỀN"
+                "THÀNH TIỀN",
+                "THỜI GIAN"
         );
         for (Order order : orders) {
             boolean checkContinue = true;
@@ -275,7 +278,7 @@ public class taoDonHangView {
                     checkContinue = false;
                 }
                 if (checkContinue == false) {
-                    System.out.printf("%-17s %-20s %-20s %-15s %-15s %-17s %-15s %-20s\n",
+                    System.out.printf("%-17s %-20s %-20s %-15s %-15s %-12s %-12s %-15s %-20s\n",
                             "【" + newOrderItem.getIdItem() + "】",
                             order.getName(),
                             order.getPhonenumber(),
@@ -283,7 +286,8 @@ public class taoDonHangView {
                             newOrderItem.getProductName(),
                             newOrderItem.getQuantity(),
                             AppUtils.doubleToVND(newOrderItem.getPrice()),
-                            AppUtils.doubleToVND(newOrderItem.getTotal())
+                            AppUtils.doubleToVND(newOrderItem.getTotal()),
+                            InstantUtils.instantToString(order.getCreateAT())
                     );
                     checkContinue = true;
                     AppUtils.doubleToVND(total += newOrderItem.getTotal());

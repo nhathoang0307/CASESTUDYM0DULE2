@@ -11,15 +11,26 @@ public class Order {
 
     private Long idUser;
 
+    private Instant createAT;
+
+    public Instant getCreateAT() {
+        return createAT;
+    }
+
+    public void setCreateAT(Instant createAT) {
+        this.createAT = createAT;
+    }
+
     public Order() {
     }
 
-    public Order(Long idOrder, String name, String phonenumber, String address, Long idUser) {
+    public Order(Long idOrder, String name, String phonenumber, String address, Long idUser, Instant createAT) {
         this.idOrder = idOrder;
         this.name = name;
         this.phonenumber = phonenumber;
         this.address = address;
         this.idUser = idUser;
+        this.createAT = createAT;
     }
 
     public Long getIdUser() {
@@ -75,6 +86,9 @@ public class Order {
         order.phonenumber = field[2];
         order.address = field[3];
         order.idUser = Long.parseLong(field[4]);
+        String temp = field[5];
+        if(temp != null && !temp.equals("null"))
+            order.createAT = Instant.parse(temp);
         return order;
     }
 
