@@ -86,9 +86,7 @@ public class Order {
         order.phonenumber = field[2];
         order.address = field[3];
         order.idUser = Long.parseLong(field[4]);
-        String temp = field[5];
-        if(temp != null && !temp.equals("null"))
-            order.createAT = Instant.parse(temp);
+        order.createAT = Instant.parse(field[5]);
         return order;
     }
 
@@ -96,6 +94,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return idOrder + "," + name + "," + phonenumber + "," + address + "," + idUser;
+        return idOrder + "," + name + "," + phonenumber + "," + address + "," + idUser + "," + createAT;
     }
 }

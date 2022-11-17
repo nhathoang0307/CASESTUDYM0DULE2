@@ -9,8 +9,20 @@
       <change beforePath="$PROJECT_DIR$/daTa/orderItems.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/orderItems.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daTa/orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/orders.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daTa/products.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/products.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daTa/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AppUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Login/LoginUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginUserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Login/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiNguoiDungView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerUserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiSanPhamView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/User/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/UserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/OrderView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/User/thoatChuongTrinh.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +58,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "344",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/Module2/BaiTap/Exercise",
+    "last_opened_file_path": "G:/Module2/caseThamKhao/2.1-loiUserThanhAdmin/2-loiUserThanhAdmin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
     "two.files.diff.last.used.folder": "G:/Module2/case_module2/src/TITV"
   }
 }]]></component>
@@ -160,7 +173,10 @@
       <workItem from="1668381980553" duration="2764000" />
       <workItem from="1668390065457" duration="30421000" />
       <workItem from="1668435565678" duration="2113000" />
-      <workItem from="1668437949185" duration="51450000" />
+      <workItem from="1668437949185" duration="54204000" />
+      <workItem from="1668561087107" duration="11264000" />
+      <workItem from="1668641776251" duration="1692000" />
+      <workItem from="1668649621625" duration="11999000" />
     </task>
     <servers />
   </component>
@@ -177,15 +193,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

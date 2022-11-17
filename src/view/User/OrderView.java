@@ -1,6 +1,5 @@
 package view.User;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import model.Order;
 import model.OrderItem;
 import model.Product;
@@ -11,7 +10,7 @@ import utils.InstantUtils;
 import utils.ValidateUtils;
 import view.Login.LoginUserView;
 import view.Product.ProductView;
-import view.Product.QuanLiSanPhamView;
+import view.Product.ManagerProductView;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class taoDonHangView {
+public class OrderView {
     public static Scanner scanner = new Scanner(System.in);
 
     private final IProductService productService;
@@ -30,7 +29,7 @@ public class taoDonHangView {
 
     public static ProductView productView = new ProductView();
 
-    public taoDonHangView() {
+    public OrderView() {
         productService = ProductService.getProductService();
         orderService = OrderService.getInstance();
         oderItemService = OrderItemService.getInstance();
@@ -82,7 +81,7 @@ public class taoDonHangView {
                 System.out.println("\t--               【0】. THOÁT                            --");
                 System.out.println("\t--                                                      --");
                 System.out.println("\t----------------------------------------------------------");
-                System.out.print("CHỌN SỐ : ");
+                System.out.print("►►►►►►Chọn số: ");
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "1":
@@ -123,7 +122,7 @@ public class taoDonHangView {
                 System.out.println("\t--               【3】. THOÁT                            --");
                 System.out.println("\t--                                                      --");
                 System.out.println("\t----------------------------------------------------------");
-                System.out.print("CHỌN SỐ : ");
+                System.out.print("►►►►►►Chọn số: ");
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "1":
@@ -147,8 +146,8 @@ public class taoDonHangView {
 
 
     public OrderItem addOrderItems(Long orderId) {
-        QuanLiSanPhamView quanLiSanPhamView = new QuanLiSanPhamView();
-        quanLiSanPhamView.showALl();
+        ManagerProductView managerProductView = new ManagerProductView();
+        managerProductView.showALl();
         Long id = System.currentTimeMillis() / 1000;
         System.out.print("NHẬP ID SẢN PHẨM CẦN MUA : ");
         Long bakeryId = Long.parseLong(scanner.nextLine());
@@ -245,20 +244,13 @@ public class taoDonHangView {
         }
     }
 
-    public void getHistoryOrdertest() {
-        Long check = UserService.getUserService().getIdUser(loginUserView.name);
-        List<User> users = UserService.getUserService().showAllUser();
-        List<Order> orders = orderService.showAllOrder();
-        List<OrderItem> orderItems = oderItemService.showAll();
-
-    }
     public void getHistoryOrder() {
         Long userId = UserService.getUserService().getIdUser(loginUserView.name);
         List<Order> orders = orderService.orderHistory(userId);
         List<OrderItem> orderItems = OrderItemService.getInstance().showAll();
         OrderItem newOrderItem = new OrderItem();
         double total = 0;
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------LỊCH SỬ ĐƠN HÀNG CỦA BẠN----------------------------------------------------------------------------------------------------------------------");
         System.out.printf("%-17s %-20s %-20s %-15s %-15s %-12s %-12s %-15s %-20s\n",
                 " ID",
                 "TÊN KHÁCH HÀNG",

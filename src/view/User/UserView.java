@@ -1,19 +1,18 @@
 package view.User;
 
-import com.sun.javafx.css.PseudoClassState;
 import model.User;
 import service.UserService;
-import view.Product.QuanLiSanPhamView;
+import view.Product.ManagerProductView;
 
 import java.util.Scanner;
 
 public class UserView {
     public static Scanner scanner = new Scanner(System.in);
-    public static QuanLiSanPhamView quanLiSanPhamView = new QuanLiSanPhamView();
+    public static ManagerProductView managerProductView = new ManagerProductView();
 
     public static User user = new User();
     public static UserService userService = new UserService();
-    public static taoDonHangView taoDonHangView = new taoDonHangView();
+    public static OrderView OrderView = new OrderView();
 
 
     public void MenuUser() {
@@ -35,15 +34,15 @@ public class UserView {
              choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
-                        quanLiSanPhamView.showALl();
+                        managerProductView.showALl();
                         MenuUser();
                         break;
                     case 2:
-                        taoDonHangView.MenutaoDonHang();
+                        OrderView.MenutaoDonHang();
                         MenuUser();
                         break;
                     case 3:
-                        taoDonHangView.getHistoryOrder();
+                        OrderView.getHistoryOrder();
                         MenuUser();
                         break;
                     case 0:

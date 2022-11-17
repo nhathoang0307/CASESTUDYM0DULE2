@@ -44,9 +44,9 @@ public class ProductService implements IProductService {
             if (p.getId().equals(newProduct.getId())) {
                 if (newProduct.getName() != null && !newProduct.getName().isEmpty())
                     p.setName(newProduct.getName());
-                if (newProduct.getPrice() != 0)
+                if (newProduct.getPrice() != 0.0)
                     p.setPrice(newProduct.getPrice());
-                if (newProduct.getQuantity() != 0)
+                if (newProduct.getQuantity() != null)
                     p.setQuantity(newProduct.getQuantity());
                 if (newProduct.getManufacturer() != null && !newProduct.getManufacturer().isEmpty())
                     p.setManufacturer(newProduct.getManufacturer());

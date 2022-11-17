@@ -12,57 +12,28 @@ public class AppUtils{
             try {
                 option = Integer.parseInt(scanner.nextLine());
                 if (option > max || option < min) {
-                    System.out.println("CHỌN SAI, XIN MỜI NHẬP LẠI");
+                    System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI TỪ" + min + "ĐẾN " + max + "(CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
                     continue;
                 }
                 break;
             } catch (Exception ex) {
-                System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+                System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
             }
         } while (true);
         return option;
     }
 
-    public static int retryParseInt() {
-        int result;
-        do {
-            try {
-                result = Integer.parseInt(scanner.nextLine());
-                return result;
-            } catch (Exception ex) {
-                System.out.println("NHẬP SAI, XIN NHẬP LẠI");
-            }
-        } while (true);
-    }
-
-    public static String retryTitle() {
-        String title;
-        while ((title = scanner.nextLine()).isEmpty()) {
-            System.out.println("KHÔNG ĐƯỢC BỎ TRỐNG");
-        }
-        return title;
-    }
 
     public static String retryString(String fieldName) {
         String result;
         while ((result = scanner.nextLine()).isEmpty()) {
-            System.out.printf("%s KHÔNG ĐƯỢC ĐỂ TRỐNG \n", fieldName);
+            System.out.printf("%s KHÔNG ĐƯỢC ĐỂ TRỐNG ☼☼☼ \n", fieldName);
             System.out.print("░░░ ");
         }
         return result;
     }
 
-    public static double retryParseDouble() {
-        double result;
-        do {
-            try {
-                result = Double.parseDouble(scanner.nextLine());
-                return result;
-            } catch (Exception ex) {
-                System.out.println("NHẬP SAI, XIN NHẬP LẠI");
-            }
-        } while (true);
-    }
+
 
     public static Long retryParseLong() {
         Long result;
@@ -71,7 +42,19 @@ public class AppUtils{
                 result = Long.parseLong(scanner.nextLine());
                 return result;
             } catch (Exception ex) {
-                System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+                System.out.println("☼☼☼ NHẬP SAI, XIN NHẬP LẠI (CHỈ NHẬP SỐ) ☼☼☼ ");
+            }
+        } while (true);
+    }
+
+    public static float retryParseFloat() {
+        float result;
+        do {
+            try {
+                result = Float.parseFloat(scanner.nextLine());
+                return result;
+            } catch (Exception ex) {
+                System.out.println("☼☼☼  NHẬP SAI, XIN NHẬP LẠI (CHỈ NHẬP SỐ) ☼☼☼ ");
             }
         } while (true);
     }
@@ -115,23 +98,26 @@ public class AppUtils{
                     exit();
                     break;
                 default:
-                    System.out.println("CHỌN SAI SỐ, XIN NHẬP LẠI ");
+                    System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN)");
                     break;
             }
         } while (true);
     }
 
     public static void exit() {
-        System.out.println("░░░ CHÀO TẠM BIỆT, HẸN GẶP LẠI !!! ░░░");
+        System.out.println("♫♫♫♫♫ CHÀO TẠM BIỆT, HẸN GẶP LẠI ♫♫♫♫♫");
         System.exit(5);
     }
     public static String beNotEmply(String name) {
         String result;
         while ((result = scanner.nextLine()).isEmpty()) {
-            System.out.println(name + " KHÔNG ĐƯỢC ĐỂ TRỐNG");
+            System.out.println(name + " KHÔNG ĐƯỢC ĐỂ TRỐNG, VUI LÒNG NHẬP LẠI THEO DANH SÁCH ☼☼☼");
         }
         return result;
     }
+
+
+    
 
     public static boolean isRetry() {
         System.out.println("NHẤN 1 ĐỂ TIẾP TỤC \t|\t NHẤN 2 ĐỂ QUAY LẠI \t|\t NHẤN 0 ĐỂ THOÁT CHƯƠNG TRÌNH");
@@ -143,10 +129,10 @@ public class AppUtils{
                 case "2":
                    return false;
                 case "0":
-                    System.out.println("CHÀO TẠM BIỆT, HẸN GĂP LẠI");
+                    System.out.println("♫♫♫♫♫ CHÀO TẠM BIỆT, HẸN GẶP LẠI ♫♫♫♫♫");
                     System.exit(5);
                 default:
-                    System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+                    System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN)");
                     break;
             }
         } while (true);

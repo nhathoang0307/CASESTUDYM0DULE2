@@ -10,32 +10,31 @@ import utils.ValidateUtils;
 
 import java.util.Scanner;
 
-public class QuanLiNguoiDungView {
+public class ManagerUserView {
     public static Scanner scanner = new Scanner(System.in);
     private final IUserService userService;
     public static ProductView productView = new ProductView();
 
 
-    public QuanLiNguoiDungView() {
+    public ManagerUserView() {
         userService = UserService.getUserService();
     }
 
     public void menuUser() {
         int number;
-        System.out.println("\t------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("\t--░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[DANH SÁCH NGƯỜI DÙNG]░░░░░░░░░░░░░░░░░░░░░░░░░░░░░--");
-        System.out.println("\t-------------------------------------------------------------------------------------");
-        System.out.println("\t--                                                                                 --");
-        System.out.println("\t--                        【1】. HIỂN THỊ NGƯỜI DÙNG                                --");
-        System.out.println("\t--                        【2】. THÊM NGƯỜI DÙNG                                    --");
-        System.out.println("\t--                        【3】. SỬA NGƯỜI DÙNG                                     --");
-        System.out.println("\t--                        【4】. XÓA NGƯỜI DÙNG                                     --");
-        System.out.println("\t--                        【5】. QUAY LẠI MENU                                      --");
-        System.out.println("\t--                        【0】. THOÁT CHƯƠNG TRÌNH                                 --");
-        System.out.println("\t--                                                                                 --");
-        System.out.println("\t-------------------------------------------------------------------------------------");
+        System.out.println("");
+        System.out.println("\t|»»»»»»»»»»»»»»»»»»»»»[DANH SÁCH NGƯỜI DÙNG]«««««««««««««««««««|");
+        System.out.println("\t|                                                              |");
+        System.out.println("\t|               【1】. HIỂN THỊ NGƯỜI DÙNG                      |");
+        System.out.println("\t|               【2】. THÊM NGƯỜI DÙNG                          |");
+        System.out.println("\t|               【3】. SỬA NGƯỜI DÙNG                           |");
+        System.out.println("\t|               【4】. XÓA NGƯỜI DÙNG                           |");
+        System.out.println("\t|               【5】. QUAY LẠI MENU                            |");
+        System.out.println("\t|               【0】. THOÁT CHƯƠNG TRÌNH                       |");
+        System.out.println("\t|                                                              |");
+        System.out.println("\t|**************************************************************|");
         do {
-            System.out.print("░░░░░░░░░░░░░░░░░░░░░░░░░░  CHỌN SỐ : ");
+            System.out.print("►►►►►► Chọn số: ");
             number = Integer.parseInt(scanner.nextLine());
             switch (number) {
                 case 1:
@@ -67,10 +66,10 @@ public class QuanLiNguoiDungView {
     public void removeUser() {
         do {
             showAllUser();
-            System.out.println("NHẬP ID CẦN XÓA:");
+            System.out.print("►►►►►► NHẬP ID CẦN XÓA: ");
             Long idUserDel = inputId();
             userService.removeUser(idUserDel);
-            System.out.println("BẠN ĐÃ XÓA SẢN PHẨM THÀNH CÔNG");
+            System.out.println("»»»»»» BẠN ĐÃ XÓA SẢN PHẨM THÀNH CÔNG ««««««");
         } while (AppUtils.isRetry());
     }
 
@@ -79,7 +78,7 @@ public class QuanLiNguoiDungView {
         do {
             try {
                 showAllUser();
-                System.out.println("NHẬP ID CẦN THAY ĐỔI");
+                System.out.print("►►►►►► NHẬP ID CẦN THAY ĐỔI: ");
                 Long id = inputId();
                 System.out.println("\t----------------------------------------------------------");
                 System.out.println("\t--░░░░░░░░░░░░░░░░░░░[THAY ĐỔI NGƯỜI DÙNG]░░░░░░░░░░░░░░--");
@@ -94,7 +93,19 @@ public class QuanLiNguoiDungView {
                 System.out.println("\t--               【0】. THOÁT CHƯƠNG TRÌNH               --");
                 System.out.println("\t--                                                      --");
                 System.out.println("\t----------------------------------------------------------");
-                System.out.print("░░░░░░░░░░░░░░░░░░░░░░░░░░  CHỌN SỐ : ");
+
+                System.out.println("\t|»»»»»»»»»»»»»»»»»»»»»[THAY ĐỔI NGƯỜI DÙNG]«««««««««««««««««««|");
+                System.out.println("\t|                                                             |");
+                System.out.println("\t|                    【1】. THAY ĐỔI TÊN                       |");
+                System.out.println("\t|                    【2】. THAY ĐỔI SỐ ĐIỆN THOẠI             |");
+                System.out.println("\t|                    【3】. THAY ĐỔI ĐỊA CHỈ                   |");
+                System.out.println("\t|                    【4】. THAY ĐỔI EMAIL                     |");
+                System.out.println("\t|                    【5】. THAY ĐỔI TẤT CẢ                    |");
+                System.out.println("\t|                    【6】. QUAY LẠI MENU                      |");
+                System.out.println("\t|                    【0】. THOÁT CHƯƠNG TRÌNH                 |");
+                System.out.println("\t|                                                             |");
+                System.out.println("\t|*************************************************************|");
+                System.out.print("►►►►►► Chọn số: ");
                 int option = AppUtils.retryChoose(0, 6);
                 User newUser = new User();
                 newUser.setId(id);
@@ -107,25 +118,25 @@ public class QuanLiNguoiDungView {
                         name = inputFullName();
                         newUser.setFullName(name);
                         userService.update(newUser);
-                        System.out.println("THAY ĐỔI TÊN THÀNH CÔNG");
+                        System.out.println("»»»»»» THAY ĐỔI TÊN THÀNH CÔNG ««««««");
                         break;
                     case 2:
                         phone = inputPhone();
                         newUser.setMobile(phone);
                         userService.update(newUser);
-                        System.out.println("THAY ĐỔI SỐ ĐIỆN THOẠI THÀNH CÔNG");
+                        System.out.println("»»»»»» THAY ĐỔI SỐ ĐIỆN THOẠI THÀNH CÔNG ««««««");
                         break;
                     case 3:
                         address = inputAddress();
                         newUser.setAddress(address);
                         userService.update(newUser);
-                        System.out.println("THAY ĐỔI ĐỊA CHỈ THÀNH CÔNG");
+                        System.out.println("»»»»»» THAY ĐỔI ĐỊA CHỈ THÀNH CÔNG ««««««");
                         break;
                     case 4:
                         email = inputEmail();
                         newUser.setEmail(email);
                         userService.update(newUser);
-                        System.out.println("THAY ĐỔI EMAIL THÀNH CÔNG");
+                        System.out.println("»»»»»» THAY ĐỔI EMAIL THÀNH CÔNG ««««««");
                         break;
                     case 5:
                         name = inputFullName();
@@ -137,12 +148,12 @@ public class QuanLiNguoiDungView {
                         email = inputEmail();
                         newUser.setEmail(email);
                         userService.update(newUser);
-                        System.out.println("THAY ĐỔI THÀNH CÔNG");
+                        System.out.println("»»»»»» THAY ĐỔI THÀNH CÔNG ««««««");
                 }
                 isRetry = option != 5 && AppUtils.isRetry();
 
             } catch (Exception e) {
-                System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+                System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
             }
         } while (isRetry);
     }
@@ -159,9 +170,9 @@ public class QuanLiNguoiDungView {
             User user = new User(id, username, password, fullName, phone, email, address, Role.USER);
             setRole(user);
             userService.add(user);
-            System.out.println("ĐÃ THÊM THÀNH CÔNG");
+            System.out.println("»»»»»» ĐÃ THÊM USER THÀNH CÔNG ««««««");
         } catch (Exception ex) {
-            System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+            System.out.println("☼☼☼ NHẬP SAI, XIN NHẬP LẠI☼☼☼ ");
         }
     }
 
@@ -174,7 +185,14 @@ public class QuanLiNguoiDungView {
         System.out.println("\t--               【2】. QUẢN TRỊ VIÊN                    --");
         System.out.println("\t--                                                      --");
         System.out.println("\t----------------------------------------------------------");
-        System.out.print("░░░░░░░░░░░░░░░░░░░░░░░░░░  CHỌN SỐ : ");
+        System.out.println("");
+        System.out.println("\t|»»»»»»»»»»»»»»»»»»»»»[PHÂN QUYỀN NGƯỜI DÙNG]«««««««««««««««««««|");
+        System.out.println("\t|                                                               |");
+        System.out.println("\t|                      【1】. THÀNH VIÊN                         |");
+        System.out.println("\t|                      【2】. QUẢN TRỊ VIÊN                      |");
+        System.out.println("\t|                                                               |");
+        System.out.println("\t|***************************************************************|");
+        System.out.print("►►►►►► Chọn số: ");
         String option = scanner.nextLine();
         switch (option) {
             case "1":
@@ -184,23 +202,23 @@ public class QuanLiNguoiDungView {
                 user.setRole(Role.ADMIN);
                 break;
             default:
-                System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI");
+                System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN)");
                 setRole(user);
         }
     }
 
     private String inputEmail() {
-        System.out.print("NHẬP EMAIL : ");
+        System.out.print("►►►►►► NHẬP EMAIL: ");
         String email;
         do {
             if (!ValidateUtils.isEmailValid(email = scanner.nextLine())) {
-                System.out.println("EMAIL CỦA BẠN KHÔNG ĐÚNG ĐỊNH DẠNG (tanluong@gmail.com)");
-                System.out.print("NHẬP EMAIL : ");
+                System.out.println("☼☼☼ EMAIL CỦA BẠN KHÔNG ĐÚNG ĐỊNH DẠNG (nhathoang@gmail.com) ☼☼☼");
+                System.out.print("►►►►►► NHẬP LẠI EMAIL: ");
                 continue;
             }
             if (userService.existsByEmail(email)) {
-                System.out.println("EMAIL CỦA BẠN ĐÃ TỒN TẠI, XIN NHẬP LẠI");
-                System.out.print("NHẬP EMAIL : ");
+                System.out.println("☼☼☼ EMAIL CỦA BẠN ĐÃ TỒN TẠI, XIN NHẬP LẠI ☼☼☼");
+                System.out.print("►►►►►► NHẬP LẠI EMAIL: ");
                 continue;
             }
             break;
@@ -210,12 +228,12 @@ public class QuanLiNguoiDungView {
 
     private String inputAddress() {
         String address;
-        System.out.print("NHẬP ĐỊA CHỈ: ");
+        System.out.print("►►►►►► NHẬP ĐỊA CHỈ: ");
         address = scanner.nextLine();
         do {
             if (address.trim().isEmpty()) {
-                System.out.println("ĐỊA CHỈ KHÔNG ĐƯỢC BỎ TRỐNG");
-                System.out.print("NHẬP ĐỊA CHỈ : ");
+                System.out.println("☼☼☼ ĐỊA CHỈ KHÔNG ĐƯỢC BỎ TRỐNG ☼☼☼");
+                System.out.print("►►►►►► NHẬP LẠI ĐỊA CHỈ: ");
                 address = scanner.nextLine();
             }
         } while (address.trim().isEmpty());
@@ -225,15 +243,15 @@ public class QuanLiNguoiDungView {
     public String inputPhone() {
         String phone;
         do {
-            System.out.print("NHẬP SỐ ĐIỆN THOẠI: ");
+            System.out.print("►►►►►► NHẬP SỐ ĐIỆN THOẠI: ");
             phone = scanner.nextLine();
             if (!ValidateUtils.isPhoneValid(phone)) {
-                System.out.println("SỐ CỦA BẠN KHÔNG ĐÚNG ĐỊNH DẠNG (BẮT ĐẦU LÀ SỐ 0, VÀ ĐỦ 10 SỐ)");
+                System.out.println("☼☼☼ SỐ CỦA BẠN KHÔNG ĐÚNG ĐỊNH DẠNG (BẮT ĐẦU LÀ SỐ 0, VÀ ĐỦ 10 SỐ) ☼☼☼ ");
                 continue;
             }
             if (userService.existsByPhone(phone)) {
-                System.out.println("SỐ NÀY ĐÃ TỒN TẠI, XIN NHẬP LẠI");
-                System.out.print("NHẬP SỐ ĐIỆN THOẠI : ");
+                System.out.println("☼☼☼ SỐ NÀY ĐÃ TỒN TẠI, XIN NHẬP LẠI ☼☼☼");
+                System.out.print("►►►►►► NHẬP SỐ ĐIỆN THOẠI: ");
                 continue;
             }
             break;
@@ -242,18 +260,18 @@ public class QuanLiNguoiDungView {
     }
 
     public String inputUsername() {
-        System.out.print("NHẬP TÊN TÀI KHOẢN : ");
+        System.out.print("►►►►►► NHẬP TÊN TÀI KHOẢN: ");
         String username;
 
         do {
             if (!ValidateUtils.isUsernameValid(username = AppUtils.retryString("TÊN TÀI KHOẢN"))) {
-                System.out.println("TÊN TÀI KHOẢN CỦA BẠN NHẬP KHÔNG ĐÚNG ĐỊNH DẠNG (>7 KÝ TỰ, KHÔNG BAO GỒM KÍ TỰ ĐẶC BIỆT,...)");
-                System.out.print("NHẬP TÊN TÀI KHOẢN : ");
+                System.out.println("☼☼☼ TÊN TÀI KHOẢN CỦA BẠN NHẬP KHÔNG ĐÚNG ĐỊNH DẠNG (>7 KÝ TỰ, KHÔNG BAO GỒM KÍ TỰ ĐẶC BIỆT,...) ☼☼☼");
+                System.out.println("►►►►►► NHẬP TÊN TÀI KHOẢN: ");
                 continue;
             }
             if (userService.existsByUsername(username)) {
-                System.out.println("TÊN TÀI KHOẢN NÀY ĐÃ TỒN TẠI, XIN NHẬP LẠI");
-                System.out.print("NHẬP TÊN TÀI KHOẢN : ");
+                System.out.println("☼☼☼ TÊN TÀI KHOẢN NÀY ĐÃ TỒN TẠI, XIN NHẬP LẠI ☼☼☼");
+                System.out.println("►►►►►► NHẬP TÊN TÀI KHOẢN: ");
                 continue;
             }
             break;
@@ -262,21 +280,21 @@ public class QuanLiNguoiDungView {
     }
 
     private String inputPassword() {
-        System.out.print("NHẬP MẬT KHẨU : ");
+        System.out.print("►►►►►► NHẬP MẬT KHẨU : ");
         String password;
         while (!ValidateUtils.isPasswordValid(password = scanner.nextLine())) {
-            System.out.println("MẬT KHẨU PHẢI > 7 KÍ TỰ");
-            System.out.print("NHẬP MẬT KHẨU : ");
+            System.out.println("☼☼☼ MẬT KHẨU PHẢI > 7 KÍ TỰ ☼☼☼");
+            System.out.print("►►►►►► NHẬP LẠI MẬT KHẨU: ");
         }
         return password;
     }
 
     private String inputFullName() {
-        System.out.print("NHẬP HỌ VÀ TÊN: ");
+        System.out.print("►►►►►► NHẬP HỌ VÀ TÊN: ");
         String fullName;
         while (!ValidateUtils.isNameValid(fullName = scanner.nextLine())) {
-            System.out.println("TÊN KHÔNG ĐÚNG ĐỊNH DẠNG (PHẢI VIẾT HOA CHỮ CÁI ĐẦU TIÊN)");
-            System.out.print("NHẬP LẠI : ");
+            System.out.println("☼☼☼ TÊN KHÔNG ĐÚNG ĐỊNH DẠNG (PHẢI VIẾT HOA CHỮ CÁI ĐẦU TIÊN) ☼☼☼");
+            System.out.print("►►►►►► NHẬP LẠI: ");
         }
         return fullName;
     }
@@ -288,8 +306,7 @@ public class QuanLiNguoiDungView {
             id = AppUtils.retryParseLong();
             boolean exist = userService.existById(id);
             if (!exist) {
-                System.out.println("ID NÀY KHÔNG CÓ TRONG DANH SÁCH CẦN TÌM");
-                isRetry = !exist;
+                System.out.println("☼☼☼ ID NÀY KHÔNG CÓ TRONG DANH SÁCH CẦN TÌM ☼☼☼");
                 System.out.println("NHẤN 1 ĐỂ TIẾP TỤC \t|\t NHẤN 2 ĐỂ QUAY LẠI \t|\t NHẤN 0 ĐỂ THOÁT CHƯƠNG TRÌNH");
                 do {
                     String choice = scanner.nextLine();
@@ -301,10 +318,10 @@ public class QuanLiNguoiDungView {
                             menuUser();
                             break;
                         case "0":
-                            System.out.println("CHÀO TẠM BIỆT, HẸN GĂP LẠI");
+                            System.out.println("♫♫♫♫♫ CHÀO TẠM BIỆT, HẸN GẶP LẠI ♫♫♫♫♫");
                             System.exit(5);
                         default:
-                            System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+                            System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
                             break;
                     }
                 } while (true);
