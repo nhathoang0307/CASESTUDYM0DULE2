@@ -10,19 +10,19 @@
       <change beforePath="$PROJECT_DIR$/daTa/orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/orders.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daTa/products.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/products.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daTa/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/users.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AppUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ValidateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ValidateUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Login/LoginUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginUserView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Login/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Product/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ProductView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiNguoiDungView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerUserView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Product/QuanLiSanPhamView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/ManagerProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Product/ManagerUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerUserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/User/OrderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/OrderView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/User/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/UserView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/User/taoDonHangView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/OrderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/User/thoatChuongTrinh.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,23 +51,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "344",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/Module2/caseThamKhao/2.1-loiUserThanhAdmin/2-loiUserThanhAdmin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "two.files.diff.last.used.folder": "G:/Module2/case_module2/src/TITV"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;344&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Module2/caseThamKhao/2.1-loiUserThanhAdmin/2-loiUserThanhAdmin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;two.files.diff.last.used.folder&quot;: &quot;G:/Module2/case_module2/src/TITV&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Module2\case_module2\daTa" />
@@ -176,7 +176,11 @@
       <workItem from="1668437949185" duration="54204000" />
       <workItem from="1668561087107" duration="11264000" />
       <workItem from="1668641776251" duration="1692000" />
-      <workItem from="1668649621625" duration="11999000" />
+      <workItem from="1668649621625" duration="12216000" />
+      <workItem from="1668685091059" duration="119000" />
+      <workItem from="1668685319504" duration="13239000" />
+      <workItem from="1668727060376" duration="3098000" />
+      <workItem from="1668740822854" duration="2205000" />
     </task>
     <servers />
   </component>
@@ -193,5 +197,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/case_module2$Menu.ic" NAME="Menu Coverage Results" MODIFIED="1668739584439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

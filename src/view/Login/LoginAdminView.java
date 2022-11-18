@@ -44,7 +44,7 @@ public class LoginAdminView {
                 System.out.println("\t|            【2】. QUAY LẠI                      |");
                 System.out.println("\t|            【3】. THOÁT CHƯƠNG TRÌNH            |");
                 System.out.println("\t**************************************************");
-                System.out.print("►►►►►►Chọn số: ");
+                System.out.print("►►►►►► Chọn số: ");
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "1":
@@ -60,7 +60,7 @@ public class LoginAdminView {
                         System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
                 }
             } catch (Exception e) {
-                System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN)");
+                System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
             }
         } while (true);
     }

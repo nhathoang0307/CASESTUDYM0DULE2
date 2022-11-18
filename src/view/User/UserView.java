@@ -15,23 +15,23 @@ public class UserView {
     public static OrderView OrderView = new OrderView();
 
 
+
     public void MenuUser() {
         try {
-        System.out.println("\t----------------------------------------------------------");
-        System.out.println("\t--░░░░░░░░░░░░░░░[TRANG CÁ NHÂN CỦA BẠN]░░░░░░░░░░░░░░░░--");
-        System.out.println("\t----------------------------------------------------------");
-        System.out.println("\t--                                                      --");
-        System.out.println("\t--               【1】. HIỂN THỊ DANH SÁCH SẢN PHẨM      --");
-        System.out.println("\t--               【2】. TẠO ĐƠN HÀNG                     --");
-        System.out.println("\t--               【3】. LỊCH SỬ ORDER SẢN PHẨM           --");
-        System.out.println("\t--               【0】. THOÁT                            --");
-        System.out.println("\t--                                                      --");
-        System.out.println("\t----------------------------------------------------------");
-        int choice;
-
-        do {
-            System.out.print("CHỌN SỐ : ");
-             choice = Integer.parseInt(scanner.nextLine());
+            System.out.println();
+            System.out.println("\t|»»»»»»»»»»»»»»»»»»»»»[TRANG CÁ NHÂN CỦA BẠN]«««««««««««««««««««|");
+            System.out.println("\t|                                                               |");
+            System.out.println("\t|              【1】. HIỂN THỊ DANH SÁCH SẢN PHẨM                |");
+            System.out.println("\t|              【2】. TẠO ĐƠN HÀNG                               |");
+            System.out.println("\t|              【3】. LỊCH SỬ ORDER SẢN PHẨM                     |");
+            System.out.println("\t|              【4】. ĐỔI MẬT KHẨU                               |");
+            System.out.println("\t|              【0】. THOÁT CHƯƠNG TRÌNH                         |");
+            System.out.println("\t|                                                               |");
+            System.out.println("\t|***************************************************************|");
+            int choice;
+            do {
+                System.out.print("►►►►►► CHỌN SỐ: ");
+                choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
                         managerProductView.showALl();
@@ -45,14 +45,18 @@ public class UserView {
                         OrderView.getHistoryOrder();
                         MenuUser();
                         break;
+                    case 4:
+                        OrderView.changePasswordtest();
+                        MenuUser();
+                        break;
                     case 0:
-                        System.out.println("HẸN GẶP LẠI");
+                        System.out.println("♫♫♫♫♫ CHÀO TẠM BIỆT, HẸN GẶP LẠI ♫♫♫♫♫");
                         System.exit(5);
                 }
 
-        } while (choice != 0);
+            } while (choice != 0);
         } catch (Exception e) {
-            System.out.println("NHẬP SAI , XIN NHẬP LẠI");
+            System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN)");
         }
     }
 

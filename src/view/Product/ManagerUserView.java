@@ -15,7 +15,6 @@ public class ManagerUserView {
     private final IUserService userService;
     public static ProductView productView = new ProductView();
 
-
     public ManagerUserView() {
         userService = UserService.getUserService();
     }
@@ -80,20 +79,6 @@ public class ManagerUserView {
                 showAllUser();
                 System.out.print("►►►►►► NHẬP ID CẦN THAY ĐỔI: ");
                 Long id = inputId();
-                System.out.println("\t----------------------------------------------------------");
-                System.out.println("\t--░░░░░░░░░░░░░░░░░░░[THAY ĐỔI NGƯỜI DÙNG]░░░░░░░░░░░░░░--");
-                System.out.println("\t----------------------------------------------------------");
-                System.out.println("\t--                                                      --");
-                System.out.println("\t--               【1】. THAY ĐỔI TÊN                     --");
-                System.out.println("\t--               【2】. THAY ĐỔI SỐ ĐIỆN THOẠI           --");
-                System.out.println("\t--               【3】. THAY ĐỔI ĐỊA CHỈ                 --");
-                System.out.println("\t--               【4】. THAY ĐỔI EMAIL                   --");
-                System.out.println("\t--               【5】. THAY ĐỔI TẤT CẢ                  --");
-                System.out.println("\t--               【6】. QUAY LẠI                         --");
-                System.out.println("\t--               【0】. THOÁT CHƯƠNG TRÌNH               --");
-                System.out.println("\t--                                                      --");
-                System.out.println("\t----------------------------------------------------------");
-
                 System.out.println("\t|»»»»»»»»»»»»»»»»»»»»»[THAY ĐỔI NGƯỜI DÙNG]«««««««««««««««««««|");
                 System.out.println("\t|                                                             |");
                 System.out.println("\t|                    【1】. THAY ĐỔI TÊN                       |");
@@ -106,7 +91,7 @@ public class ManagerUserView {
                 System.out.println("\t|                                                             |");
                 System.out.println("\t|*************************************************************|");
                 System.out.print("►►►►►► Chọn số: ");
-                int option = AppUtils.retryChoose(0, 6);
+                int option = AppUtils.retryChoose(0, 7);
                 User newUser = new User();
                 newUser.setId(id);
                 String name;
@@ -162,7 +147,7 @@ public class ManagerUserView {
         try {
             Long id = System.currentTimeMillis() / 1000;
             String username = inputUsername();
-            String password = inputPassword();
+            String password = inputPassword("");
             String fullName = inputFullName();
             String phone = inputPhone();
             String address = inputAddress();
@@ -177,14 +162,6 @@ public class ManagerUserView {
     }
 
     public void setRole(User user) {
-        System.out.println("\t----------------------------------------------------------");
-        System.out.println("\t--░░░░░░░░░░░░░░░░░[PHÂN QUYỀN NGƯỜI DÙNG]░░░░░░░░░░░░░░--");
-        System.out.println("\t----------------------------------------------------------");
-        System.out.println("\t--                                                      --");
-        System.out.println("\t--               【1】. THÀNH VIÊN                       --");
-        System.out.println("\t--               【2】. QUẢN TRỊ VIÊN                    --");
-        System.out.println("\t--                                                      --");
-        System.out.println("\t----------------------------------------------------------");
         System.out.println("");
         System.out.println("\t|»»»»»»»»»»»»»»»»»»»»»[PHÂN QUYỀN NGƯỜI DÙNG]«««««««««««««««««««|");
         System.out.println("\t|                                                               |");
@@ -207,7 +184,7 @@ public class ManagerUserView {
         }
     }
 
-    private String inputEmail() {
+    public String inputEmail() {
         System.out.print("►►►►►► NHẬP EMAIL: ");
         String email;
         do {
@@ -243,8 +220,11 @@ public class ManagerUserView {
     public String inputPhone() {
         String phone;
         do {
-            System.out.print("►►►►►► NHẬP SỐ ĐIỆN THOẠI: ");
+            System.out.print("►►►►►► NHẬP SỐ ĐIỆN THOẠI(NHẤN ENTER ĐỂ BỎ QUA): ");
             phone = scanner.nextLine();
+            if (phone.isEmpty()) {
+                break;
+            }
             if (!ValidateUtils.isPhoneValid(phone)) {
                 System.out.println("☼☼☼ SỐ CỦA BẠN KHÔNG ĐÚNG ĐỊNH DẠNG (BẮT ĐẦU LÀ SỐ 0, VÀ ĐỦ 10 SỐ) ☼☼☼ ");
                 continue;
@@ -255,7 +235,7 @@ public class ManagerUserView {
                 continue;
             }
             break;
-        } while (AppUtils.isRetry());
+        } while (true);
         return phone;
     }
 
@@ -279,17 +259,17 @@ public class ManagerUserView {
         return username;
     }
 
-    private String inputPassword() {
-        System.out.print("►►►►►► NHẬP MẬT KHẨU : ");
+    public String inputPassword(String name) {
+        System.out.print("►►►►►► NHẬP MẬT KHẨU " + name + ": ");
         String password;
         while (!ValidateUtils.isPasswordValid(password = scanner.nextLine())) {
-            System.out.println("☼☼☼ MẬT KHẨU PHẢI > 7 KÍ TỰ ☼☼☼");
+            System.out.println("☼☼☼ MẬT KHẨU PHẢI TỐI THIỂU 8 KÍ, BAO GỒM 1 KÍ TỰ VIẾT HOA, 1 SỐ, 1 KÍ TỰ ĐẶC BIỆT ☼☼☼");
             System.out.print("►►►►►► NHẬP LẠI MẬT KHẨU: ");
         }
         return password;
     }
 
-    private String inputFullName() {
+    public String inputFullName() {
         System.out.print("►►►►►► NHẬP HỌ VÀ TÊN: ");
         String fullName;
         while (!ValidateUtils.isNameValid(fullName = scanner.nextLine())) {

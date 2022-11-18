@@ -423,7 +423,7 @@ public class ManagerProductView {
             Instant createAT = Instant.now();
             Product product = new Product(id, name, price, quantity, manufacturer, createAT);
             productService.addProduct(product);
-            System.out.println("ĐÃ THÊM SẢN PHẨM THÀNH CÔNG ");
+            System.out.println("»»»»»» ĐÃ THÊM SẢN PHẨM THÀNH CÔNG ««««««");
         } while (AppUtils.isRetry());
     }
 
@@ -451,7 +451,7 @@ public class ManagerProductView {
             float priceEdit;
             Long quantityEdit;
             String manufacturerEdit;
-            String choice = scanner.nextLine();
+            String choice = AppUtils.beNotEmply("");
             switch (choice) {
                 case "1":
                     System.out.print("►►►►►► NHẬP TÊN SẢN PHẨM MỚI: ");

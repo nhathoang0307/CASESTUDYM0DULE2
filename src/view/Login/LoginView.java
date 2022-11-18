@@ -14,7 +14,7 @@ public class LoginView {
         System.out.println("\t|            【2】. ĐĂNG NHẬP USER                |");
         System.out.println("\t|            【3】. THOÁT                         |");
         System.out.println("\t**************************************************");
-        System.out.print("►►►►►►Chọn số: ");
+        System.out.print("►►►►►► Chọn số: ");
         boolean check = false;
         do {
             String choice = AppUtils.beNotEmply("");

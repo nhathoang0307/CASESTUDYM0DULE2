@@ -9,18 +9,20 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements IUserService{
+public class UserService implements IUserService {
     final String PATH = "G:\\Module2\\case_module2\\daTa\\users.csv";
     private static UserService userService;
 
     public UserService() {
     }
+
     public static UserService getUserService() {
         if (userService == null) {
             userService = new UserService();
         }
         return userService;
     }
+
     public List<User> showAllUser() {
         List<User> users = new ArrayList<>();
         List<String> lines = CSVUtils.read(PATH);
@@ -77,6 +79,7 @@ public class UserService implements IUserService{
         }
         return null;
     }
+
     @Override
     public void add(User newUser) {
         newUser.setCreatedAt(Instant.now());
@@ -108,6 +111,20 @@ public class UserService implements IUserService{
     }
 
     @Override
+    public void updatePW(User newUser) {
+        List<User> users = showAllUser();
+        for (User user : users) {
+            if (user.getUsername().equals(newUser.getUsername())) {
+                    user.setPassword(newUser.getPassword());
+                CSVUtils.writeUpdate(PATH, users);
+                break;
+            }
+        }
+    }
+
+
+
+    @Override
     public void removeUser(Long idUser) {
         List<User> users = showAllUser();
         for (int i = 0; i < users.size(); i++) {
@@ -130,6 +147,7 @@ public class UserService implements IUserService{
         }
         return false;
     }
+
     @Override
     public boolean existsByPhone(String phone) {
         List<User> users = showAllUser();
@@ -139,6 +157,7 @@ public class UserService implements IUserService{
         }
         return false;
     }
+
     @Override
     public boolean existsByUsername(String userName) {
         List<User> users = showAllUser();

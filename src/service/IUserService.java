@@ -15,6 +15,8 @@ public interface IUserService {
 
     void update(User newUser);
 
+     void updatePW(User newUser);
+
     void removeUser(Long idUser);
 
     boolean existById(Long id);

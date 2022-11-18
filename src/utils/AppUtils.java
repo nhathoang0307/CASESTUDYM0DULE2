@@ -12,7 +12,7 @@ public class AppUtils{
             try {
                 option = Integer.parseInt(scanner.nextLine());
                 if (option > max || option < min) {
-                    System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI TỪ" + min + "ĐẾN " + max + "(CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
+                    System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI TỪ " + min + " ĐẾN " + max + "(CHỌN SỐ THEO DANH SÁCH Ở TRÊN) ☼☼☼");
                     continue;
                 }
                 break;
@@ -28,7 +28,7 @@ public class AppUtils{
         String result;
         while ((result = scanner.nextLine()).isEmpty()) {
             System.out.printf("%s KHÔNG ĐƯỢC ĐỂ TRỐNG ☼☼☼ \n", fieldName);
-            System.out.print("░░░ ");
+            System.out.print("►►►►►► NHẬP LẠI: ");
         }
         return result;
     }
@@ -87,7 +87,7 @@ public class AppUtils{
                     throw new IllegalStateException("Unexpected value: " + inputOption);
             }
 
-            System.out.print("░░░ ");
+            System.out.print("");
             String option = scanner.nextLine();
             switch (option) {
                 case "1":
@@ -111,7 +111,7 @@ public class AppUtils{
     public static String beNotEmply(String name) {
         String result;
         while ((result = scanner.nextLine()).isEmpty()) {
-            System.out.println(name + " KHÔNG ĐƯỢC ĐỂ TRỐNG, VUI LÒNG NHẬP LẠI THEO DANH SÁCH ☼☼☼");
+            System.out.println(name + " KHÔNG ĐƯỢC ĐỂ TRỐNG, VUI LÒNG NHẬP LẠI ☼☼☼");
         }
         return result;
     }
@@ -132,7 +132,7 @@ public class AppUtils{
                     System.out.println("♫♫♫♫♫ CHÀO TẠM BIỆT, HẸN GẶP LẠI ♫♫♫♫♫");
                     System.exit(5);
                 default:
-                    System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI (CHỌN SỐ THEO DANH SÁCH Ở TRÊN)");
+                    System.out.println("☼☼☼ NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI ☼☼☼");
                     break;
             }
         } while (true);
