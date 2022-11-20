@@ -36,21 +36,26 @@ public class OrderView {
 
     public void changePasswordtest() {
         String checkPassOld = null;
-        String passNew = null;
-        String passNewCheck = null;
+        String passNew;
+        String passNewCheck;
         User user = new User();
         user.setUsername(loginUserView.name);
         System.out.println("►►►►►► NHẬP MẬT KHẨU CŨ: ");
         String passOld = AppUtils.beNotEmply("MẬT KHẨU");
         List<User> newUser = new ArrayList<>();
+        int checkcount = 0;
         for (User u : userService.showAllUser()) {
-            if (u.getPassword().equals(passOld)) {
+            if (passOld.equals(u.getPassword())) {
                 newUser.add(u);
+                checkcount++;
                 break;
-            } else {
-                System.out.println("☼☼☼ MẬT KHẨU KHÔNG ĐÚNG ☼☼☼");
             }
         }
+        if (checkcount == 0) {
+            System.out.println("☼☼☼ MẬT KHẨU KHÔNG ĐÚNG ☼☼☼");
+            userView.MenuUser();
+        }
+
         boolean checkFlag = true;
         do {
             passNew = managerUserView.inputPassword("MỚI");

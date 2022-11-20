@@ -10,19 +10,7 @@
       <change beforePath="$PROJECT_DIR$/daTa/orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/orders.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daTa/products.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/products.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daTa/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/daTa/users.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AppUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/ValidateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ValidateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginAdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Login/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Login/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Product/ManagerProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerProductView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Product/ManagerUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Product/ManagerUserView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/User/OrderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/OrderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/User/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/User/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +46,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;344&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Module2/caseThamKhao/2.1-loiUserThanhAdmin/2-loiUserThanhAdmin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Module2/thucHanhKetThucModule2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -180,7 +168,8 @@
       <workItem from="1668685091059" duration="119000" />
       <workItem from="1668685319504" duration="13239000" />
       <workItem from="1668727060376" duration="3098000" />
-      <workItem from="1668740822854" duration="2205000" />
+      <workItem from="1668740822854" duration="8247000" />
+      <workItem from="1668905523805" duration="1506000" />
     </task>
     <servers />
   </component>
