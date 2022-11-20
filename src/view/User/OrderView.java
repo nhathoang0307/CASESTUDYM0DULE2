@@ -35,7 +35,6 @@ public class OrderView {
     public static ManagerUserView managerUserView = new ManagerUserView();
 
     public void changePasswordtest() {
-        String checkPassOld = null;
         String passNew;
         String passNewCheck;
         User user = new User();
@@ -59,14 +58,14 @@ public class OrderView {
         boolean checkFlag = true;
         do {
             passNew = managerUserView.inputPassword("MỚI");
-            if (passNew.equals(checkPassOld)) {
+            if (passNew.equals(passOld)) {
                 System.out.println("►►►►►► TRÙNG MẬT KHẨU CŨ, VUI LÒNG NHẬP MẬT KHẨU MỚI ");
             } else {
                 checkFlag = false;
             }
         } while (checkFlag);
         System.out.println("☼☼☼ NHẬP LẠI ĐỂ XÁC NHẬN ☼☼☼☼☼☼");
-        boolean checkAgain = true;
+        boolean checkAgain;
         do {
             passNewCheck = scanner.nextLine();
             if (passNew.equals(passNewCheck)) {
